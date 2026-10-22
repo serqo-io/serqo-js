@@ -1,0 +1,19 @@
+{
+  "name": "serqo-sdk",
+  "version": "0.1.0",
+  "description": "Official JavaScript and TypeScript client for the Serqo Search API",
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": ["dist", "README.md", "LICENSE"],
+  "engines": { "node": ">=18" },
+  "scripts": { "build": "tsc -p tsconfig.json", "prepare": "npm run build" },
+  "devDependencies": { "typescript": "^5.7.2" }
+}
