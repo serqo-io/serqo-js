@@ -1,8 +1,15 @@
 {
   "name": "serqo-sdk",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Official JavaScript and TypeScript client for the Serqo Search API",
-  "keywords": ["serp", "serp-api", "search-api", "google-search", "bing-search", "typescript"],
+  "keywords": [
+    "serp",
+    "serp-api",
+    "search-api",
+    "google-search",
+    "bing-search",
+    "typescript"
+  ],
   "homepage": "https://serqo.io",
   "repository": {
     "type": "git",
@@ -25,9 +32,22 @@
       "import": "./dist/index.js"
     }
   },
-  "files": ["dist", "src", "README.md", "API.md", "LICENSE"],
+  "files": [
+    "dist",
+    "src",
+    "README.md",
+    "API.md",
+    "LICENSE"
+  ],
   "sideEffects": false,
-  "engines": { "node": ">=18" },
-  "scripts": { "build": "tsc -p tsconfig.json", "prepare": "npm run build" },
-  "devDependencies": { "typescript": "^5.7.2" }
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "prepare": "npm run build"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.2"
+  }
 }
