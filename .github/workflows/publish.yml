@@ -1,0 +1,39 @@
+name: Publish npm package
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: read
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+          registry-url: 'https://registry.npmjs.org'
+          package-manager-cache: false
+
+      - name: Use npm with trusted publishing support
+        run: npm install --global npm@^11
+
+      - run: npm ci
+
+      - name: Check tag matches package version
+        run: |
+          PACKAGE_VERSION="$(node -p "JSON.parse(require('node:fs').readFileSync('package.json', 'utf8')).version")"
+          TAG_VERSION="${GITHUB_REF_NAME#v}"
+          test "$TAG_VERSION" = "$PACKAGE_VERSION"
+
+      - run: npm publish
