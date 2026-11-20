@@ -16,6 +16,36 @@ export interface SearchRequest {
   tbs?: string;
 }
 
+export type AutocompleteStrategy = 'normal' | 'alphabet' | 'questions' | 'prepositions' | 'intent' | 'seo_matrix' | 'deep';
+
+export interface AutocompleteRequest {
+  q: string;
+  strategy?: AutocompleteStrategy;
+  gl?: string;
+  hl?: string;
+  depth?: number;
+  limit?: number;
+  timeout?: number;
+  includeGroups?: boolean;
+  noCache?: boolean;
+}
+
+export interface AutocompleteSuggestion {
+  keyword: string;
+  relevance: number;
+  type: string;
+  sourceType?: string;
+  group?: string;
+  round?: number;
+}
+
+export interface AutocompleteData {
+  seedQuery: string;
+  suggestions: AutocompleteSuggestion[];
+  groups?: Record<string, AutocompleteSuggestion[]>;
+  tree?: Record<string, unknown>;
+}
+
 /** API response envelope. `data` follows the selected endpoint's schema. */
 export interface ApiResponse<T> {
   success: true;
@@ -116,6 +146,13 @@ export class Serqo {
     const headers: Record<string, string> = {};
     if (options.idempotencyKey) headers['Idempotency-Key'] = options.idempotencyKey;
     return this.request('/v1/search', { method: 'POST', body: query, headers, signal: options.signal });
+  }
+
+  /** Fetch search suggestions or run multi-round keyword expansion strategies. */
+  autocomplete(query: AutocompleteRequest, options: SearchOptions = {}): Promise<ApiResponse<AutocompleteData>> {
+    const headers: Record<string, string> = {};
+    if (options.idempotencyKey) headers['Idempotency-Key'] = options.idempotencyKey;
+    return this.request('/v1/autocomplete', { method: 'POST', body: query, headers, signal: options.signal });
   }
 
   /** Read the current engine and search-type capability list. */

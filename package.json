@@ -1,6 +1,6 @@
 {
   "name": "serqo-sdk",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Official JavaScript and TypeScript client for the Serqo Search API",
   "keywords": [
     "serp",
@@ -8,7 +8,11 @@
     "search-api",
     "google-search",
     "bing-search",
-    "typescript"
+    "typescript",
+    "langchain",
+    "ai-sdk",
+    "ai-agents",
+    "autocomplete"
   ],
   "homepage": "https://serqo.io",
   "repository": {
