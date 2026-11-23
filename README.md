@@ -2,7 +2,7 @@
 
 Official JavaScript and TypeScript client for the [Serqo Search API](https://serqo.io). Access real-time Google and Bing SERP data in clean, structured JSON with zero proxy management.
 
-Get **100 free requests** on [serqo.io](https://serqo.io).
+Get **500 free requests** on [serqo.io](https://serqo.io).
 
 [![npm](https://img.shields.io/npm/v/serqo-sdk.svg)](https://www.npmjs.com/package/serqo-sdk)
 [![TypeScript](https://img.shields.io/badge/TypeScript-Ready-blue.svg)](https://www.typescriptlang.org/)
@@ -153,5 +153,5 @@ try {
 
 - **Web Documentation**: [https://serqo.io/docs](https://serqo.io/docs)
 - **Interactive Playground**: [https://serqo.io/console/playground](https://serqo.io/console/playground)
-- **Get API Key (100 Free Credits)**: [https://serqo.io](https://serqo.io)
+- **Get API Key (500 Free Credits)**: [https://serqo.io](https://serqo.io)
 - **License**: MIT
